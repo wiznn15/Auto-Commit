@@ -17,6 +17,11 @@ jobs:
           persist-credentials: false
           fetch-depth: 0
 
+      - name: Set up Git
+        run: |
+          git config --global user.name "wiznn15"
+          git config --global user.email "arsda911@gmail.com"
+
       - name: Modify Last Update
         run: |
           d=`date '+%Y-%m-%dT%H:%M:%SZ'`
@@ -24,8 +29,7 @@ jobs:
 
       - name: Commit Changes
         run: |
-          git config --local user.name "wiznn15"
-          git config --local user.email "arsda911@gmail.com"
+          cd $GITHUB_WORKSPACE
           git add -A
 
           arr[0]="chore(bot): 🔥 auto commit"
